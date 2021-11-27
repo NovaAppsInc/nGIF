@@ -1,5 +1,7 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, globalShortcut } = require('electron');
+const { app, BrowserWindow, globalShortcut, ipcMain} = require('electron');
+const path = require('path');
+const ipc = ipcMain;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,7 +17,28 @@ function createWindow() {
         frame: false,
         backgroundColor: '#FFF',
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false,
+            devTools: true,
+            preload: path.join(__dirname, 'preload.js'),
+        },
+        scrollBounce: true,
+        icon: "./icon.ico"
+    });
+
+    ipc.on("closeApp", () => {
+        mainWindow.close();
+    });
+    ipc.on("minApp", () => {
+        mainWindow.minimize();
+    });
+    ipc.on("maxApp", () => {
+        if(mainWindow.isMaximized()) {
+            mainWindow.webContents.send("changeIr");
+            mainWindow.restore();
+        } else {
+            mainWindow.webContents.send("changeImx");
+            mainWindow.maximize();
         }
     });
 
