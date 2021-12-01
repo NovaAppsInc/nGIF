@@ -6,6 +6,16 @@ const max = document.getElementById("max-button");
 const BrowserWindow = require("electron");
 const win = BrowserWindow;
 const i = document.getElementById("mxr");
+const infv = document.getElementById("infv");
+const closev = document.getElementById("closeVer")
+
+infv.addEventListener("click", () => {
+    ipc.send("ver");
+});
+
+closev.addEventListener("click", () => {
+    ipc.send("closeAppVer");
+});
 
 // close app here //
 close.addEventListener("click", e => {

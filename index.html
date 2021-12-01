@@ -28,7 +28,7 @@
                 <!-- <div class="button" id="restore-button">
                     <img class="icon" srcset="icons/restore-w-10.png 1x, icons/restore-w-12.png 1.25x, icons/restore-w-15.png 1.5x, icons/restore-w-15.png 1.75x, icons/restore-w-20.png 2x, icons/restore-w-20.png 2.25x, icons/restore-w-24.png 2.5x, icons/restore-w-30.png 3x, icons/restore-w-30.png 3.5x" draggable="false" />
                 </div> -->
-                <div class="button" id="close-button">
+                <div class="button close-button" id="close-button">
                     <img class="icon" srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x" draggable="false" />
                 </div>
                 <link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
@@ -38,10 +38,12 @@
 
     <div id="main">
         <div class="opts">
-            <label class="upld" for="upld">Open File</label>
+            <label class="upld btns" for="upld">Open File</label>
             <input type="file" id="upld" >
             <!-- <input type="file" id="upld" accept=".png, .jpg, .gif, .webp |image/*"> -->
             <!-- <button class="NewWin" id="newWin">New Window</button> -->
+            <button class="infv btns" id="infv">Version</button>
+            <div class="button close-buttonv" id="closeVer"></div>
         </div>
         <!-- <p>Current theme source: <strong id="theme-source">System</strong></p>
 

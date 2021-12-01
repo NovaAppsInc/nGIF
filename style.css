@@ -69,7 +69,7 @@ body {
     width: 5.6rem;
     height: 1.9rem;
 }
-.upld:hover {
+.btns:hover {
     background-color: #424242d3;
 }
 .opts {
@@ -149,7 +149,16 @@ body {
     height: calc(100% - 32px);
     margin-top: 32px;
     padding: 36px 0 0;
-    /* overflow-y: auto; */
+    overflow-y: auto;
+}
+
+#mainv {
+    background: #333333;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 #titlebar {
@@ -240,15 +249,15 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
-#close-button:hover {
+.close-button:hover {
     background: #E81123 !important;
 }
 
-#close-button:active {
+.close-button:active {
     background: #F1707A !important;
 }
 
-#close-button:active .icon {
+.close-button:active .icon {
     filter: invert(1);
 }
 
@@ -261,7 +270,7 @@ body {
     grid-column: 2;
 }
 
-#close-button {
+.close-button {
     grid-column: 3;
 }
 
@@ -323,4 +332,46 @@ img#prev {
     width: 40vw;
     height: 35vh;
     display: none;
+}
+
+.infv {
+    background-color: #585757;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 5.6rem;
+    height: 1.9rem;
+    margin-left: 2px;
+}
+.infvv {
+    display: none;
+}
+
+.close-buttonv {
+    display: none;
+}
+
+#window-titlev {
+    grid-column: 1;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    margin-left: calc(29vh + 40px);
+    overflow: hidden;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 12px;
+}
+
+.maximized #window-titlev {
+    margin-left: 12px;
+}
+
+#window-titlev span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.5;
 }

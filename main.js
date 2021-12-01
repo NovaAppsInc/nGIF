@@ -7,6 +7,7 @@ const ipc = ipcMain;
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let verWin;
 
 function createWindow() {
     // Create the browser window.
@@ -43,6 +44,47 @@ function createWindow() {
         }
     });
 
+    function createWindowVer() {
+        verWin = new BrowserWindow({
+            width: 400,
+            height: 300,
+            minWidth: 400,
+            minHeight: 300,
+            frame: false,
+            resizable: false,
+            backgroundColor: '#222222',
+            webPreferences: {
+                nodeIntegration: true,
+                contextIsolation: false,
+                devTools: false,
+                preload: path.join(__dirname, 'preload.js'),
+            },
+            scrollBounce: true,
+            icon: "./icon.ico"
+        });
+
+        ipc.on("closeAppVer", () => {
+            verWin.close();
+        });
+
+        verWin.loadFile('ver.html');
+
+        // Open the DevTools.
+        // mainWindow.webContents.openDevTools();
+    
+        // Emitted when the window is closed.
+        verWin.on('closed', () => {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        verWin = null;
+        });
+    }
+
+    ipc.on("ver", ()=> {
+        createWindowVer();
+    });
+
     // and load the index.html of the app.
     mainWindow.loadFile('index.html');
 
@@ -51,10 +93,10 @@ function createWindow() {
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        mainWindow = null;
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null;
     });
 }
 

@@ -1,11 +1,13 @@
 {
     "name": "ngif",
-    "version": "2.3.46-beta",
+    "version": "2.3.48-beta",
     "description": "A fast and simple way to view gifs!",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
-        "pack": "electron-builder --dir"
+        "pack": "electron-packager . nGIF --platform=linux win32 darwin --arch=x64 --asar",
+        "dist": "electron-builder build",
+        "win-unpack": "electron-builder --dir"
     },
     "repository": "https://github.com/NovaAppsInc/nGIF",
     "license": "MIT",
