@@ -316,3 +316,11 @@ img#prev {
     align-items: center;
     left: 0.1vw;
 }
+
+#prevV {
+    border: none;
+    outline: none;
+    width: 40vw;
+    height: 35vh;
+    display: none;
+}

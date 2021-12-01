@@ -1,12 +1,13 @@
 {
     "name": "ngif",
-    "version": "2.3.45-beta",
+    "version": "2.3.46-beta",
     "description": "A fast and simple way to view gifs!",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
-        "dist": "electron-builder"
+        "pack": "electron-builder --dir"
     },
+    "repository": "https://github.com/NovaAppsInc/nGIF",
     "license": "MIT",
     "author": "Zell Apps",
     "devDependencies": {
@@ -18,15 +19,22 @@
         "appId": "com.zellapps.ngif",
         "win": {
             "target": "nsis",
-            "icon": "build/icon.ico"
+            "icon": "build/icon.ico",
+            "publish": [
+                "github",
+                "bintray"
+            ]
         },
-        "darwin": {
-            "target": "default",
+        "mac": {
+            "target": "pkg",
             "icon": "build/icon.ico"
         },
         "linux": {
             "target": "deb",
             "icon": "build/icon.ico"
         }
+    },
+    "dependencies": {
+        "update-electron-app": "^2.0.1"
     }
 }

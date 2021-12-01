@@ -1,4 +1,5 @@
 // Modules to control application life and create native browser window
+require('update-electron-app')();
 const { app, BrowserWindow, globalShortcut, ipcMain} = require('electron');
 const path = require('path');
 const ipc = ipcMain;
@@ -10,16 +11,16 @@ let mainWindow;
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 850,
+        height: 650,
         minWidth: 800,
         minHeight: 600,
         frame: false,
-        backgroundColor: '#FFF',
+        backgroundColor: '#222222',
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: true,
+            devTools: false,
             preload: path.join(__dirname, 'preload.js'),
         },
         scrollBounce: true,
