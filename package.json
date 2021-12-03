@@ -10,7 +10,7 @@
         "win-unpack": "electron-builder --dir",
         "pub": "electron-builder --x64 -p always"
     },
-    "repository": "https://github.com/NovaAppsInc/nGIF",
+    
     "license": "MIT",
     "author": "Zell Apps",
     "devDependencies": {
