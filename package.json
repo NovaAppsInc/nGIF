@@ -8,9 +8,9 @@
         "pack": "electron-packager . nGIF --platform=linux win32 darwin --arch=x64 --asar",
         "dist": "electron-builder build",
         "win-unpack": "electron-builder --dir",
-        "pub": "electron-builder --x64 -p always"
+        "pub": "electron-builder --x64 --publish always"
     },
-    
+    "repository": "https://github.com/NovaAppsInc/nGIF",
     "license": "MIT",
     "author": "Zell Apps",
     "devDependencies": {
@@ -41,7 +41,6 @@
     "dependencies": {
         "auto": "^10.32.3",
         "electron-builder-squirrel-windows": "^22.14.10",
-        "electron-squirrel-startup": "^1.0.0",
         "update-electron-app": "^2.0.1"
     }
 }

@@ -1455,13 +1455,6 @@
     "lazy-val" "^1.0.5"
     "mime" "^2.5.2"
 
-"electron-squirrel-startup@^1.0.0":
-  "integrity" "sha1-GbTlWTP6Dvj1VnhLnGYPdyVGoLg="
-  "resolved" "https://registry.npmjs.org/electron-squirrel-startup/-/electron-squirrel-startup-1.0.0.tgz"
-  "version" "1.0.0"
-  dependencies:
-    "debug" "^2.2.0"
-
 "electron@^16.0.2", "electron@>= 6.0.0":
   "integrity" "sha512-kT746yVMztrP4BbT3nrFNcUcfgFu2yelUw6TWBVTy0pju+fBISaqcvoiMrq+8U0vRpoXSu2MJYygOf4T0Det7g=="
   "resolved" "https://registry.npmjs.org/electron/-/electron-16.0.2.tgz"
