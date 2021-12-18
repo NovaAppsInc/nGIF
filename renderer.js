@@ -7,7 +7,8 @@ const BrowserWindow = require("electron");
 const win = BrowserWindow;
 const i = document.getElementById("mxr");
 const infv = document.getElementById("infv");
-const closev = document.getElementById("closeVer")
+const closev = document.getElementById("closeVer");
+const blastp = document.getElementById("blastp");
 
 infv.addEventListener("click", () => {
     ipc.send("ver");
@@ -41,4 +42,12 @@ ipc.on("changeImx", (et, message) => {
 
 ipc.on("changeIr", (t, message) => {
     i.setAttribute("srcset", "icons/max-w-10.png 1x, icons/max-w-12.png 1.25x, icons/max-w-15.png 1.5x, icons/max-w-15.png 1.75x, icons/max-w-20.png 2x, icons/max-w-20.png 2.25x, icons/max-w-24.png 2.5x, icons/max-w-30.png 3x, icons/max-w-30.png 3.5x");
-})
+});
+
+blastp.addEventListener("mouseover", () => {
+    infv.style.border = "none";
+});
+
+blastp.addEventListener("mouseleave", () => {
+    infv.style.borderLeft = "1px solid #8d8d8d";
+});

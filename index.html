@@ -11,6 +11,14 @@
 <body>
 
     <header id="titlebar">
+        <div class="opts">
+            <label class="blastp upld btns" id="blastp" for="upld">Open File</label>
+            <input type="file" id="upld" >
+            <!-- <input type="file" id="upld" accept=".png, .jpg, .gif, .webp |image/*"> -->
+            <!-- <button class="NewWin" id="newWin">New Window</button> -->
+            <button class="infv btns lastp" id="infv">Version</button>
+            <div class="button close-buttonv" id="closeVer"></div>
+        </div>
         <div id="drag-region">
 
             <div id="window-title">
@@ -37,14 +45,6 @@
     </header>
 
     <div id="main">
-        <div class="opts">
-            <label class="upld btns" for="upld">Open File</label>
-            <input type="file" id="upld" >
-            <!-- <input type="file" id="upld" accept=".png, .jpg, .gif, .webp |image/*"> -->
-            <!-- <button class="NewWin" id="newWin">New Window</button> -->
-            <button class="infv btns" id="infv">Version</button>
-            <div class="button close-buttonv" id="closeVer"></div>
-        </div>
         <!-- <p>Current theme source: <strong id="theme-source">System</strong></p>
 
         <button id="toggle-dark-mode">Toggle Dark Mode</button>
