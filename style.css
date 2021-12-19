@@ -60,7 +60,6 @@ body {
     color: #fff;
 }
 .upld {
-    background-color: #222;
     font-family: Arial, Helvetica, sans-serif;
     font-size: smaller;
     display: grid;
@@ -71,9 +70,6 @@ body {
 }
 .btns:hover {
     background-color: #424242d3;
-}
-.opts {
-    background-color: #313131;
 }
 .NewWin {
     background-color: #585757;
@@ -358,6 +354,12 @@ img#prev {
 .close-buttonv {
     display: none;
 }
+.close-buttonvt {
+    overflow: hidden !important;
+    border-bottom-left-radius: 6px !important;
+    overflow: hidden;
+    background: #444343;
+}
 
 #window-titlev {
     grid-column: 1;
@@ -368,10 +370,7 @@ img#prev {
     overflow: hidden;
     font-family: "Segoe UI", sans-serif;
     font-size: 12px;
-}
-
-.maximized #window-titlev {
-    margin-left: 12px;
+    user-select: none;
 }
 
 #window-titlev span {
@@ -389,8 +388,17 @@ img#prev {
 
 .lastp {
     border-left: 1px solid #8d8d8d;
+    overflow: hidden;
 }
 
 .lastp:hover {
     border: none !important;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.blastp {
+    overflow: hidden;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }

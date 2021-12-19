@@ -1,6 +1,6 @@
 {
-    "name": "ngif",
-    "version": "2.3.48-beta",
+    "name": "nGIF",
+    "version": "2.3.49-beta",
     "description": "A fast and simple way to view gifs!",
     "main": "main.js",
     "scripts": {
