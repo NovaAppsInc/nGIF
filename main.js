@@ -21,7 +21,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: true,
+            devTools: false,
             preload: path.join(__dirname, 'preload.js'),
         },
         scrollBounce: true,
