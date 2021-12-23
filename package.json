@@ -1,6 +1,6 @@
 {
     "name": "nGIF",
-    "version": "2.3.49-beta",
+    "version": "2.3.50-beta",
     "description": "A fast and simple way to view gifs!",
     "main": "main.js",
     "scripts": {
@@ -20,14 +20,28 @@
         "electron-packager": "^15.4.0"
     },
     "build": {
-        "appId": "com.zellapps.ngif",
+        "appId": "com.zellapps.nGIF",
         "win": {
+            "asar": true,
+            "legalTrademarks": "(c) 2021 Zell Apps",
+            "publisherName": "Zell Apps",
             "target": "nsis",
             "icon": "build/icon.ico",
             "publish": [
                 "github",
                 "bintray"
             ]
+        },
+        "nsis": {
+            "installerIcon": "build/icon.ico",
+            "uninstallerIcon": "build/icon.ico",
+            "license": "LICENSE",
+            "allowToChangeInstallationDirectory": true,
+            "oneClick": false,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "multiLanguageInstaller": true,
+            "displayLanguageSelector": true
         },
         "mac": {
             "target": "pkg",

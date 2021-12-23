@@ -49,15 +49,36 @@
 
         <button id="toggle-dark-mode">Toggle Dark Mode</button>
         <button id="reset-to-system">Reset to System Theme</button> -->
-        <div class="img" id="imgCon">
-            <img id="prev">
+        <div class="img drop-zone" id="imgCon">
+            <span class="dgt" id="dgt">Drag or drop an image here</span>
+            <img id="previ" class="drop-zone__input show">
             <video id="prevV"></video>
         </div>
+        <a class="hdi" id="hideimg">Hide</a>
+        <!-- <div class="drop-zone">
+            
+            <img type="file" class="drop-zone__input">
+        </div> -->
     </div>
 
     <script>
         const inp = document.getElementById("upld");
+        let dragZT = document.getElementById("dgt");
+        let hdi = document.getElementById("hideimg");
+        let i = document.getElementById("previ");
         inp.addEventListener('change', p);
+
+        hdi.addEventListener("click", eeet => {
+                    if(i.classList.contains("show")) {
+                        i.classList.add("hide");
+                        i.classList.remove("show");
+                        // i.style.display = "none !important";
+                    } else if(i.classList.contains("hide")) {
+                        i.classList.remove("hide");
+                        i.classList.add("show");
+                        // i.style.display = "block !important";
+                    }
+                });
 
         function p() {
             const o = this.files[0];
@@ -65,14 +86,18 @@
             r.readAsDataURL(o);
             r.onload = function() {
                 const t = r.result;
-                const i = document.getElementById("prev");
+                dragZT.style.display = "none";
+                i.style.display = "block";
                 i.setAttribute('src', t);
+                i.classList.add("show");
+                hdi.style.display = "block";
             }
         }
         // You can also require other files to run in this process
         require('./renderer.js')
         // require("./theme.js")
     </script>
+    <script src="./drag.js"></script>
 </body>
 
 </html>

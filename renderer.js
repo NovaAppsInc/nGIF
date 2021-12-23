@@ -49,5 +49,5 @@ blastp.addEventListener("mouseover", () => {
 });
 
 blastp.addEventListener("mouseleave", () => {
-    infv.style.borderLeft = "1px solid #8d8d8d";
+    infv.style.borderLeft = "2px solid #8d8d8d";
 });

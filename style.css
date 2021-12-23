@@ -1,3 +1,18 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url(./fonts/Ubuntu-Medium.ttf);
+}
+
+@font-face {
+    font-family: Tham;
+    src: url(./fonts/ThmbsN.ttf);
+}
+
+@font-face {
+    font-family: Whit;
+    src: url(./fonts/Whitney-nGIF.ttf);
+}
+
 /* @media (prefers-color-scheme: dark) {
     body {
         background: #222;
@@ -146,9 +161,9 @@ body {
 }
 
 #main {
-    height: calc(100% - 32px);
-    margin-top: 32px;
-    padding: 36px 0 0;
+    height: 100%;
+    margin-top: 0;
+    padding: 33px 0 0 0;
     overflow-y: auto;
 }
 
@@ -159,10 +174,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-#titlebar {
-    padding: 4px;
+    font-family: Ubuntu;
 }
 
 #titlebar #drag-region {
@@ -184,12 +196,17 @@ body {
 
 #window-title {
     grid-column: 1;
+    position: absolute;
     display: grid;
     align-items: center;
     text-align: center;
     overflow: hidden;
-    font-family: "Segoe UI", sans-serif;
-    font-size: 12px;
+    font-family: 'Whit';
+    font-size: 19px;
+    font-weight: bolder;
+    justify-content: center;
+    top: 0;
+    left: calc(48.4%);
 }
 
 .maximized #window-title {
@@ -304,18 +321,20 @@ input::-webkit-file-upload-button {
 }
 
 div.img {
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 87%;
+    height: 100%;
     position: fixed;
 }
 
-img#prev {
+img#previ {
     height: 79vh;
     border: none;
     outline: none;
+    display: none;
+    border-radius: 8px;
 }
 
 .opts {
@@ -325,6 +344,8 @@ img#prev {
     align-items: center;
     margin-top: 0;
     margin-left: -4px;
+    border-bottom-right-radius: 6px;
+    background: #343434;
 }
 
 #prevV {
@@ -336,7 +357,7 @@ img#prev {
 }
 
 .infv {
-    background-color: #222;
+    background-color: transparent;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: smaller;
@@ -368,8 +389,9 @@ img#prev {
     text-align: center;
     margin-left: calc(29vh + 40px);
     overflow: hidden;
-    font-family: "Segoe UI", sans-serif;
-    font-size: 12px;
+    font-family: Whit;
+    font-size: 19px;
+    font-weight: bolder;
     user-select: none;
 }
 
@@ -387,7 +409,7 @@ img#prev {
 }
 
 .lastp {
-    border-left: 1px solid #8d8d8d;
+    border-left: 2px solid #8d8d8d;
     overflow: hidden;
 }
 
@@ -401,4 +423,35 @@ img#prev {
     overflow: hidden;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.hdi {
+    user-select: none;
+    display: none;
+    height: min-content;
+    width: min-content;
+    margin-top: 14px;
+    position: absolute;
+    left: calc(47%);
+    background: #454545;
+    padding: 5px 22px;
+    border-radius: 3px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.hdi:hover {
+    cursor: pointer;
+    background: #383838;
+}
+
+.dgt {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
