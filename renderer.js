@@ -10,14 +10,6 @@ const infv = document.getElementById("infv");
 const closev = document.getElementById("closeVer");
 const blastp = document.getElementById("blastp");
 
-infv.addEventListener("click", () => {
-    ipc.send("ver");
-});
-
-closev.addEventListener("click", () => {
-    ipc.send("closeAppVer");
-});
-
 // close app here //
 close.addEventListener("click", e => {
     ipc.send('closeApp')
