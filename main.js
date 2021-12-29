@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 require('update-electron-app')();
-const { app, BrowserWindow, autoUpdater ,globalShortcut, ipcMain} = require('electron');
+const { app, BrowserWindow, autoUpdater ,globalShortcut, ipcMain, Menu} = require('electron');
 const path = require('path');
 const ipc = ipcMain;
 
@@ -50,7 +50,6 @@ function createWindow() {
             height: 300,
             minWidth: 400,
             minHeight: 300,
-            frame: false,
             resizable: false,
             backgroundColor: '#222222',
             webPreferences: {
@@ -63,9 +62,16 @@ function createWindow() {
             icon: "./icon.ico"
         });
 
-        ipc.on("closeAppVer", () => {
-            verWin.close();
-        });
+        var menu = Menu.buildFromTemplate([
+            {
+                label: 'Quit',
+                click() {
+                    verWin.close();
+                }
+            }
+        ]);
+
+        Menu.setApplicationMenu(menu); 
 
         verWin.loadFile('ver.html');
 
