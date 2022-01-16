@@ -56,68 +56,13 @@ function updateThumbnail(dropZoneElement, file) {
     reader.readAsDataURL(file);
     reader.onload = () => {
       let o = reader.result;
-      let fileName = o.value;
-      let extension = fileName.split('.').pop();
-      function checkFileExtension() {
-          if(extension === "webm") {
-              if(thumbnailElement.hasAttribute('src')){
-                  thumbnailElement.removeAttribute("src");
-                  hdi.classList.remove("show");
-                  hdi.classList.add("hide");
-                  delt.textContent = "NO";
-                  if(delt.classList.contains("hide")) {
-                      delt.classList.remove('hide');
-                      delt.classList.add("show")
-                  } else if(delt.classList.contains("show")) {
-                      return
-                  }
-              } else if(!thumbnailElement.hasAttribute('src')) {
-                  if(dragZT.classList.contains("hide")) {
-                      return;
-                  } else if(dragZT.classList.contains("show")) {
-                      dragZT.classList.remove("show");
-                      dragZT.classList.add("hide");
-                  }
-                  delt.textContent = "NO";
-                  if(delt.classList.contains("hide")) {
-                      delt.classList.remove('hide');
-                      delt.classList.add("show")
-                  } else if(delt.classList.contains("show")) {
-                      return
-                  }
-              }
-          } else {
-              if(delt.classList.contains("hide")) {
-                  dragZT.classList.add('hide');
-                  thumbnailElement.setAttribute('src', o);
-                  thumbnailElement.classList.remove("hide");
-                  thumbnailElement.classList.add("show");
-                  hdi.classList.add("show");
-                  hdi.classList.remove("hide");
-              } else if(delt.classList.contains("show")) {
-                  delt.classList.add("hide");
-                  delt.classList.remove("show");
-                  dragZT.classList.add('hide');
-                  thumbnailElement.setAttribute('src', o);
-                  thumbnailElement.classList.remove("hide");
-                  thumbnailElement.classList.add("show");
-                  hdi.classList.add("show");
-                  hdi.classList.remove("hide");
-              }
-          }
-      }
-      checkFileExtension();
-      hdi.addEventListener("click", eeet => {
-          if(i.classList.contains("show")) {
-              i.classList.add("hide");
-              i.classList.remove("show");
-          } else if(i.classList.contains("hide")) {
-              i.classList.remove("hide");
-              i.classList.add("show");
-          }
-      });
+      thumbnailElement.style.display = "block";
+      dragZ.style.border = "none";
+      dragZT.style.display = "none";
+      thumbnailElement.setAttribute('src', o);
+      hdi.style.display = "block";
     };
   } else {
       thumbnailElement.setAttribute('src', null);
   }
-}  
+}
