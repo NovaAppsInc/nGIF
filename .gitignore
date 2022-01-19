@@ -5,3 +5,4 @@ nGIF-darwin-x64.zip
 nGIF-linux-x64
 nGIF-darwin-x64
 .env
+yarn.lock

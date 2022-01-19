@@ -1,68 +1,86 @@
-document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-  const dropZoneElement = inputElement.closest(".drop-zone");
+const { read } = require("original-fs");
 
-  dropZoneElement.addEventListener("click", (e) => {
-    inputElement.click();
-  });
+const hdiD = document.createElement("a");
+hdiD.setAttribute("class", "hdv");
+hdiD.setAttribute("id", "hidev");
+hdiD.innerText = "Hide";
 
-  inputElement.addEventListener("change", (e) => {
-    if (inputElement.files.length) {
-      updateThumbnail(dropZoneElement, inputElement.files[0]);
-    }
-  });
-
-  dropZoneElement.addEventListener("dragover", (e) => {
+// drag file //
+document.querySelectorAll(".img.drop-zone").forEach((inputElement) => {
+  inputElement.addEventListener("dragover", e => {
     e.preventDefault();
-    dropZoneElement.classList.add("drop-zone--over");
+    inputElement.classList.add("drop-zone--over");
   });
 
-  ["dragleave", "dragend"].forEach((type) => {
-    dropZoneElement.addEventListener(type, (e) => {
-      dropZoneElement.classList.remove("drop-zone--over");
+  ["dragleave", "dragend"].forEach(type => {
+    inputElement.addEventListener(type, (e) => {
+      inputElement.classList.remove("drop-zone--over");
     });
   });
 
-  dropZoneElement.addEventListener("drop", (e) => {
+  inputElement.addEventListener("drop", e => {
     e.preventDefault();
 
     if (e.dataTransfer.files.length) {
       inputElement.files = e.dataTransfer.files;
-      updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+      updateThumbnail(inputElement, e.dataTransfer.files[0]);
     }
 
-    dropZoneElement.classList.remove("drop-zone--over");
+    inputElement.classList.remove("drop-zone--over");
   });
 });
 
-/**
- * Updates the thumbnail on a drop zone element.
- *
- * @param {HTMLElement} dropZoneElement
- * @param {File} file
- */
 function updateThumbnail(dropZoneElement, file) {
-  let thumbnailElement = dropZoneElement.querySelector("#previ");
-  let dragZ = document.getElementById("imgCon");
-  let dragZT = document.getElementById("dgt");
-  let hdi = document.getElementById("hideimg");
+  const hdi = document.getElementById("hideimg");
 
   // First time - there is no thumbnail element, so lets create it
   // const thumbnailElement = document.getElementById("previ");
 
   // Show thumbnail for image files
-  if (file.type.startsWith("image/")) {
-    const reader = new FileReader();
+  const reader = new FileReader();
 
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      let o = reader.result;
-      thumbnailElement.style.display = "block";
-      dragZ.style.border = "none";
-      dragZT.style.display = "none";
-      thumbnailElement.setAttribute('src', o);
-      hdi.style.display = "block";
+  reader.readAsDataURL(file);
+  reader.onload = () => {
+    let o = reader.result;
+    // dragFile = o.value;
+    // dragExtension = dragFile.split('.').pop();
+    if (document.getElementById("previ")) {
+      let iDrem = document.getElementById("previ");
+      iDrem.parentNode.removeChild(iDrem);
     };
-  } else {
-      thumbnailElement.setAttribute('src', null);
-  }
+    if (file.type.startsWith("image/")) {
+      var iD = document.createElement("img");
+    } else if (file.type.startsWith("video/")) {
+      var iD = document.createElement("video");
+    } else throw "invalid file type";
+    const imgConD = document.getElementById("imgCon");
+    iD.setAttribute("class", "drop-zone__input show");
+    iD.setAttribute("id", "previ");
+    // makes controls appear lol
+    // iD.setAttribute("controls", "");
+    // makes video autoplay
+    iD.setAttribute("autoplay", "");
+    iD.setAttribute("loop", "");
+    iD.muted = true;
+    iD.setAttribute("type", file.type.split(';')[0].replace('data:', ''));
+    iD.setAttribute("src", o);
+    imgConD.appendChild(iD);
+    hdi.setAttribute('class', 'hdi show');
+    hdi.title = "hide/show image";
+    hdi.addEventListener("click", eeet => {
+      if (iD.hasAttribute('src')) {
+        if (iD.classList.contains("show")) {
+          iD.classList.add("hide");
+          hdi.textContent = 'Show';
+          iD.classList.remove("show");
+        } else if (iD.classList.contains("hide")) {
+          hdi.textContent = 'Hide';
+          iD.classList.remove("hide");
+          iD.classList.add("show");
+        }
+      } else {
+        return;
+      }
+    });
+  };
 }

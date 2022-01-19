@@ -1,104 +1,206 @@
-<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>nGIF</title>
+        <link rel="stylesheet" href="style.css">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    </head>
+    <body>
+        <header id="titlebar">
 
-<head>
-    <meta charset="UTF-8">
-    <title>nGIF</title>
-    <script src="./controls.js"></script>
-    <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-
-    <header id="titlebar">
-        <div class="opts">
-            <label class="blastp upld btns" id="blastp" for="upld">Open File</label>
-            <input type="file" id="upld" >
-            <!-- <input type="file" id="upld" accept=".png, .jpg, .gif, .webp |image/*"> -->
-            <!-- <button class="NewWin" id="newWin">New Window</button> -->
-            <button class="infv btns lastp" id="infv">Version</button>
-            <div class="button close-buttonv" id="closeVer"></div>
-        </div>
-        <div id="drag-region">
-
-            <div id="window-title">
-                <span>nGIF</span>
+            <div class="opts">
+                <label class="upld btns" for="upld" title="Open a file">Open File</label>
+                <!-- <input type="file" id="upld" > -->
+                <input type="file" id="upld" accept=".png, .gif, .webp, .webm, .jpeg">
+                <button class="settings btns" id="settingsbt" title="Settings (Only theme at this moment)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="22"
+                        height="22" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z">
+                        </path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
+                <!-- gallery -->
+                <!-- <button class="btns" id="gall">Gallery</button> -->
+                <!-- gallery -->
             </div>
+            <div id="drag-region">
 
-            <div id="window-controls">
 
-                <div class="button" id="min-button">
-                    <img class="icon" srcset="icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x" draggable="false" />
+
+                <div id="window-title">nGIF</div>
+                <div id="window-controls">
+
+                    <div class="button" id="min-button" title="minimize">
+                        <img class="icon"
+                            srcset="icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x"
+                            draggable="false">
+                    </div>
+                    <div class="button" id="max-button" title="maximize and restore">
+                        <img class="icon" id="mxr"
+                            srcset="icons/max-w-10.png 1x, icons/max-w-12.png 1.25x, icons/max-w-15.png 1.5x, icons/max-w-15.png 1.75x, icons/max-w-20.png 2x, icons/max-w-20.png 2.25x, icons/max-w-24.png 2.5x, icons/max-w-30.png 3x, icons/max-w-30.png 3.5x"
+                            draggable="false">
+                    </div>
+                    <div class="button close-button" id="close-button" title="close">
+                        <img class="icon"
+                            srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x"
+                            draggable="false">
+                    </div>
                 </div>
-                <div class="button" id="max-button">
-                    <img class="icon" id="mxr" srcset="icons/max-w-10.png 1x, icons/max-w-12.png 1.25x, icons/max-w-15.png 1.5x, icons/max-w-15.png 1.75x, icons/max-w-20.png 2x, icons/max-w-20.png 2.25x, icons/max-w-24.png 2.5x, icons/max-w-30.png 3x, icons/max-w-30.png 3.5x" draggable="false" />
-                </div>
-                <!-- <div class="button" id="restore-button">
-                    <img class="icon" srcset="icons/restore-w-10.png 1x, icons/restore-w-12.png 1.25x, icons/restore-w-15.png 1.5x, icons/restore-w-15.png 1.75x, icons/restore-w-20.png 2x, icons/restore-w-20.png 2.25x, icons/restore-w-24.png 2.5x, icons/restore-w-30.png 3x, icons/restore-w-30.png 3.5x" draggable="false" />
-                </div> -->
-                <div class="button close-button" id="close-button">
-                    <img class="icon" srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x" draggable="false" />
-                </div>
-                <link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
             </div>
-        </div>
-    </header>
+        </header>
 
-    <div id="main">
-        <!-- <p>Current theme source: <strong id="theme-source">System</strong></p>
-
-        <button id="toggle-dark-mode">Toggle Dark Mode</button>
-        <button id="reset-to-system">Reset to System Theme</button> -->
-        <div class="img drop-zone" id="imgCon">
-            <span class="dgt" id="dgt">Drag or drop an image here</span>
-            <span class="dgt hide" id="delt">This Element Is Hidden!</span>
-            <img id="previ" class="drop-zone__input show">
-            <video id="prevV"></video>
-        </div>
-        <a class="hdi" id="hideimg">Hide</a>
-        <!-- <div class="drop-zone">
-            
-            <img type="file" class="drop-zone__input">
+        <!-- <div id="maing" class="maing hide">
+            <div class="carra">
+                <div class="row top1">
+                    <div class="imgC img1">
+                        <img class="imgM" id="pic" src="./images/wfFAWF.png">
+                    </div>
+                </div>
+            </div>
         </div> -->
-    </div>
 
-    <script>
-        const inp = document.getElementById("upld");
-        let dragZT = document.getElementById("dgt");
-        let hdi = document.getElementById("hideimg");
-        let i = document.getElementById("previ");
-        inp.addEventListener('change', p);
+        <div id="main" class="">
+            <div class="img drop-zone" id="imgCon">
+                <!-- <img src="./images/yuh3bjr.jpg" alt="" class="show" id="previ"> -->
+                <!-- <img class="drop-zone__input show" id="previ" controls="" autoplay="" src="D:\picturesPoMain\Anim\7ca281f81cbbc103ecb160846465d2fa.jpeg"> -->
+            </div>
+            <div class="hdiCont">
 
-        hdi.addEventListener("click", eeet => {
-                    if(i.classList.contains("show")) {
+            </div>
+            <div class="settingsUI hide" id="settingsUI">
+                <!-- <div class="navTab">
+                    <ul>
+                        <li class="navlist">
+                            <p>Theme</p>
+                        </li>
+                    </ul>
+                </div> -->
+                <div class="theme enabled">
+                    <button id="toggle-dark-mode">Toggle Dark Mode</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const hdiCont = document.querySelector(".hdiCont");
+            const maing = document.getElementById("maing");
+            const main = document.getElementById("main");
+            const inp = document.getElementById("upld");
+            const hdi = document.createElement("a");
+            hdi.setAttribute("class", "hdi hide");
+            hdi.setAttribute("id", "hideimg");
+            hdi.innerText = "Hide";
+            hdi.title = "hide/show image";
+            hdiCont.appendChild(hdi);
+
+            // const hdv = document.createElement("a");
+            // hdv.setAttribute("class", "hdv");
+            // hdv.setAttribute("id", "hidev");
+            // hdv.innerText = "Hide";
+            const infv = document.getElementById("infv");
+            const imgCon = document.getElementById("imgCon");
+            // gallery btn //
+            const pic = document.getElementById("pic");
+            // end //
+            inp.addEventListener('change', p);
+
+
+            // gallery function (broken) //
+            // pic.addEventListener("click", () => {
+            //     if(maing.classList.contains("show")) {
+            //         maing.classList.add("hide");
+            //         maing.classList.remove("show");
+            //         main.classList.add("show");
+            //         main.classList.remove("hide");
+            //         main.appendChild(hdi);
+            //         if(prevV == null) {
+            //             i.setAttribute("src", picy);
+            //             imgCon.appendChild(i);
+            //         } else if(!prevV == null) {
+            //             prevV.parentNode.removeChild(prevV);
+            //             i.setAttribute("src", picy);
+            //             imgCon.appendChild(i);
+            //             hdv.parentNode.removeChild(hdv);
+            //         }
+            //     } else if(maing.classList.contains("hide")) {
+            //         maing.classList.remove("hide");
+            //         maing.classList.add("show");
+            //         main.classList.remove("show");
+            //         main.classList.add("hide");
+            //     }
+            // });
+            // end //
+
+            function p() {
+                const o = this.files[0];
+                const r = new FileReader();
+                r.readAsDataURL(o);
+                r.onload = function () {
+                    const hdi = document.getElementById("hideimg");
+                    const t = r.result;
+                    function checkFileExtension() {
+                        fileName = document.querySelector('#upld').value;
+                        // dragFile = o.value;
+                        // dragExtension = dragFile.split('.').pop();
+                        if (document.getElementById("previ")) {
+                            let iDrem = document.getElementById("previ");
+                            iDrem.parentNode.removeChild(iDrem);
+                        };
+                        if (o.type.startsWith("image/")) {
+                            var iD = document.createElement("img");
+                        } else if (o.type.startsWith("video/")) {
+                            var iD = document.createElement("video");
+                        } else throw "invalid file type";
+                        const imgConD = document.getElementById("imgCon");
+                        iD.setAttribute("class", "drop-zone__input show");
+                        iD.setAttribute("id", "previ");
+                        // enables video controls
+                        // iD.setAttribute("controls", "")
+                        // makes video autoplay
+                        iD.setAttribute("autoplay", "");
+                        iD.setAttribute("loop", "");
+                        iD.muted = true;
+                        iD.setAttribute("src", o.path);
+                        imgConD.appendChild(iD);
+                        hdi.setAttribute('class', 'hdi show');
+                        hdi.addEventListener("click", eeet => {
+                            if (iD.hasAttribute('src')) {
+                                if (iD.classList.contains("show")) {
+                                    hdi.textContent = 'Show';
+                                    iD.classList.add("hide");
+                                    iD.classList.remove("show");
+                                } else if (iD.classList.contains("hide")) {
+                                    hdi.textContent = 'Hide';
+                                    iD.classList.remove("hide");
+                                    iD.classList.add("show");
+                                }
+                            } else {
+                                return;
+                            }
+                        });
+                    };
+                    checkFileExtension();
+                }
+            }
+            hdi.addEventListener("click", eeet => {
+                if (i.hasAttribute('src')) {
+                    if (i.classList.contains("show")) {
                         i.classList.add("hide");
                         i.classList.remove("show");
-                        // i.style.display = "none !important";
-                    } else if(i.classList.contains("hide")) {
+                    } else if (i.classList.contains("hide")) {
                         i.classList.remove("hide");
                         i.classList.add("show");
-                        // i.style.display = "block !important";
                     }
-                });
-
-        function p() {
-            const o = this.files[0];
-            const r = new FileReader();
-            r.readAsDataURL(o);
-            r.onload = function() {
-                const t = r.result;
-                dragZT.style.display = "none";
-                i.style.display = "block";
-                i.setAttribute('src', t);
-                i.classList.add("show");
-                hdi.style.display = "block";
-            }
-        }
-        // You can also require other files to run in this process
-        require('./renderer.js')
-        // require("./theme.js")
-    </script>
-    <script src="./drag.js"></script>
-</body>
-
+                } else {
+                    return;
+                }
+            });
+            require("./renderer.js")
+        </script>
+        <script src="./drag.js"></script>
+    </body>
 </html>
