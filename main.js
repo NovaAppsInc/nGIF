@@ -19,6 +19,7 @@ function createWindow() {
         minHeight: 655,
         frame: false,
         darkTheme: true,
+        show: false,
         thickFrame: true,
         backgroundColor: '#222222',
         webPreferences: {
@@ -162,6 +163,9 @@ function createWindow() {
     // and load the index.html of the app.
     mainWindow.loadFile('index.html');
 
+    mainWindow.webContents.on('did-finish-load', function() {
+        mainWindow.show();
+    });
     // Open the DevTools.
     // mainWindow.webContents.openDevTools();
 
