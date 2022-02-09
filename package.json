@@ -7,6 +7,7 @@
         "start": "electron .",
         "pack": "electron-packager . nGIF --platform=linux win32 darwin --arch=x64 --asar",
         "dist": "electron-builder build",
+        "lin": "electron-builder --linux snap",
         "win-unpack": "electron-builder --dir",
         "pub": "electron-builder --x64 --publish always"
     },
@@ -26,15 +27,15 @@
             "legalTrademarks": "(c) 2021 Zell Apps",
             "publisherName": "Zell Apps",
             "target": "nsis",
-            "icon": "build/icon.ico",
+            "icon": "icon.png",
             "publish": [
                 "github",
                 "bintray"
             ]
         },
         "nsis": {
-            "installerIcon": "build/icon.ico",
-            "uninstallerIcon": "build/icon.ico",
+            "installerIcon": "icon.png",
+            "uninstallerIcon": "icon.png",
             "license": "LICENSE",
             "allowToChangeInstallationDirectory": true,
             "oneClick": false,
@@ -45,11 +46,11 @@
         },
         "mac": {
             "target": "pkg",
-            "icon": "build/icon.ico"
+            "icon": "icon.png"
         },
         "linux": {
             "target": "deb",
-            "icon": "build/icon.ico"
+            "icon": "icon.png"
         }
     },
     "dependencies": {
