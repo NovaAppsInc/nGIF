@@ -1,7 +1,7 @@
 ## Installation
 https://github.com/NovaAppsInc/nGIF/releases
 
-or get it from the snap store
+or get it from the snap store for Linux platforms
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ngif)
 
