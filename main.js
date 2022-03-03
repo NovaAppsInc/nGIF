@@ -39,7 +39,7 @@ function createWindow() {
     });
     
     ipcMain.handle('dark-mode:system', () => {
-      nativeTheme.themeSource = 'system'
+      nativeTheme.themeSource = 'dark'
     });
 
     ipc.on("closeApp", () => {
