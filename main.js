@@ -22,7 +22,7 @@ function createWindow() {
         backgroundColor: '#222222',
         webPreferences: {
             nodeIntegration: true,
-            devTools: false,
+            devTools: true,
             contextIsolation: false
         },
         scrollBounce: true,
