@@ -1,0 +1,53 @@
+{
+    "name": "nGIF",
+    "version": "2.3.52",
+    "description": "A fast and simple way to view photos/gifs/webms!",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-packager . nGIF --platform=darwin --arch=x64 --asar",
+        "dist": "electron-builder build",
+        "package": "electron-packager . --arch=x64 --out=out",
+        "snap": "electron-installer-snap --src=dist/nGIF-linux-x64/",
+        "debpack": "electron-packager . nGIF --platform linux --arch x64 --out dist/",
+        "deb": "electron-installer-debian --src dist/nGIF-linux-x64/ --arch amd64 --config config.json"
+    },
+    "repository": "https://github.com/NovaAppsInc/nGIF",
+    "license": "MIT",
+    "author": "SNOOT",
+    "devDependencies": {
+        "electron": "^16.0.2",
+        "electron-builder": "^22.14.5",
+        "electron-installer-debian": "^3.1.0",
+        "electron-installer-snap": "^5.1.0",
+        "electron-packager": "^15.4.0"
+    },
+    "build": {
+        "appId": "com.snoot.nGIF",
+        "win": {
+            "asar": true,
+            "legalTrademarks": "(c) 2022 Zell Apps",
+            "publisherName": "Zell Apps",
+            "target": "nsis",
+            "icon": "icon.ico"
+        },
+        "nsis": {
+            "installerIcon": "icon.ico",
+            "uninstallerIcon": "icon.ico",
+            "license": "LICENSE",
+            "allowToChangeInstallationDirectory": true,
+            "oneClick": false,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "multiLanguageInstaller": true,
+            "displayLanguageSelector": true
+        }
+    },
+    "dependencies": {
+        "ansi-regex": "^6.0.1",
+        "auto": "^10.32.3",
+        "electron-builder-squirrel-windows": "^22.14.10",
+        "node-fetch": "^2.6.1",
+        "update-electron-app": "^2.0.1"
+    }
+}

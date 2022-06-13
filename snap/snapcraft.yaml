@@ -1,0 +1,38 @@
+name: ngif
+version: '2.3.52'
+summary: nGIF for Linux
+description: |
+ A fast and simple way to view photos/gifs/webms!
+
+grade: stable
+confinement: classic
+
+parts:
+  slack:
+    plugin: dump
+    source: /dist/nGIF-linux-x64
+    after:
+      - desktop-gtk3
+    stage-packages:
+      - libasound2
+      - libnotify4
+      - libnspr4
+      - libnss3
+      - libpcre3
+      - libpulse0
+      - libxss1
+      - libxtst6
+  electron-launch:
+    plugin: dump
+    source: files/
+    prepare: |
+      chmod +x bin/electron-launch
+
+apps:
+  myApp:
+    command: bin/electron-launch $SNAP/usr/lib/ngif/ngif
+    desktop: usr/share/applications/ngif.desktop
+    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+    # libappindicator has readable resources.
+    environment:
+      TMPDIR: $XDG_RUNTIME_DIR

@@ -2,6 +2,7 @@
 const { app, BrowserWindow ,globalShortcut, ipcMain, Menu, nativeTheme } = require('electron');
 const path = require('path');
 const ipc = ipcMain;
+if (require('electron-squirrel-startup')) return app.quit();
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -22,7 +23,7 @@ function createWindow() {
         backgroundColor: '#222222',
         webPreferences: {
             nodeIntegration: true,
-            devTools: true,
+            devTools: false,
             contextIsolation: false
         },
         scrollBounce: true,

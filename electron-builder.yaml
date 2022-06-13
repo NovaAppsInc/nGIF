@@ -1,4 +1,0 @@
-win:
-  publish:
-    - github
-    - bintray

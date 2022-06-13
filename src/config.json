@@ -1,0 +1,15 @@
+{
+    "name": "nGIF",
+    "productName": "nGIF",
+    "description": "Hello this a long and extensive project that I SNOOT have been working on since late 2019. this is version 2.3.52, so it's not in its prime but enjoy!",
+    "productDescript": "Hello this a long and extensive project that I SNOOT have been working on since late 2019. this is version 2.3.52, so it's not in its prime but enjoy!",
+    "dest": "dist/installers/",
+    "version": "2.3.52",
+    "icon": "icon.png",
+    "maintainer": "SNOOT",
+    "homepage": "https://snootman.ga/ngif/ngif.html",
+    "categories": ["photo and video"],
+    "lintianOverrides": [
+      "changelog-file-missing-in-native-package"
+    ]
+  }

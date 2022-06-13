@@ -1,63 +1,59 @@
 {
-    "name": "nGIF",
-    "version": "2.3.52-beta",
-    "description": "A fast and simple way to view gifs!",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron .",
-        "pack": "electron-packager . nGIF --platform=linux win32 darwin --arch=x64 --asar",
-        "dist": "electron-builder build",
-        "lin": "electron-builder --linux snap",
-        "win-unpack": "electron-builder --dir",
-        "pub": "electron-builder --x64 --publish always"
-    },
-    "repository": "https://github.com/NovaAppsInc/nGIF",
-    "license": "MIT",
-    "author": "Zell Apps",
-    "devDependencies": {
-        "electron": "^16.0.2",
-        "electron-builder": "^22.14.5",
-        "electron-installer-snap": "^5.1.0",
-        "electron-packager": "^15.4.0"
-    },
-    "build": {
-        "appId": "com.zellapps.nGIF",
-        "win": {
-            "asar": true,
-            "legalTrademarks": "(c) 2022 Zell Apps",
-            "publisherName": "Zell Apps",
-            "target": "nsis",
-            "icon": "icon.ico",
-            "publish": [
-                "github",
-                "bintray"
-            ]
+  "name": "ngif",
+  "productName": "ngif",
+  "version": "2.3.52",
+  "description": "A fast and simple way to view photos/gifs/webms!",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Linux Snoot",
+    "email": "49733954+NovaAppsInc@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "ngif"
+          }
         },
-        "nsis": {
-            "installerIcon": "icon.ico",
-            "uninstallerIcon": "icon.ico",
-            "license": "LICENSE",
-            "allowToChangeInstallationDirectory": true,
-            "oneClick": false,
-            "createDesktopShortcut": true,
-            "createStartMenuShortcut": true,
-            "multiLanguageInstaller": true,
-            "displayLanguageSelector": true
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
         },
-        "mac": {
-            "target": "pkg",
-            "icon": "icon.ico"
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
         },
-        "linux": {
-            "target": "deb",
-            "icon": "icon.ico"
+        {
+          "name": "@electron-forge/maker-snap",
+          "config": {}
         }
-    },
-    "dependencies": {
-        "ansi-regex": "^6.0.1",
-        "auto": "^10.32.3",
-        "electron-builder-squirrel-windows": "^22.14.10",
-        "node-fetch": "^2.6.1",
-        "update-electron-app": "^2.0.1"
+      ]
     }
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "@electron-forge/maker-snap": "^6.0.0-beta.63",
+    "electron": "19.0.4",
+    "electron-installer-snap": "^5.1.0"
+  }
 }
